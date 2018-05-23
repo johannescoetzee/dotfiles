@@ -10,7 +10,8 @@
 exec nm-applet
 exec redshift
 exec --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always nitrogen --set-tiled /home/johannes/Downloads/archbackground.png
+#exec_always nitrogen --set-tiled /home/johannes/Downloads/archbackground.png
+exec_always feh --bg-scaled /home/johannes/dotfiles/archbackground.png
 exec_always xrandr --output HDMI-1 --same-as eDP-1 
 exec xfce4-power-manager
 exec compton
