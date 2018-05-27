@@ -17,7 +17,7 @@ exec xfce4-power-manager
 exec compton
 
 
-assign [class="Steam"] 10
+# assign [class="Steam"] 10
 assign [class="transmission-gtk"] 9
 # i3 config file (v4)
 #
