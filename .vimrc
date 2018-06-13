@@ -1,6 +1,7 @@
 " hz is escape
 inoremap hz <esc>
 
+nnoremap <F5> :w<CR>:buffers<CR>:buffer<Space>
 inoremap /**<CR> /**<CR><BS><BS>**/<Esc>O<BS> * 
 
 " Automatically do double curly braces
