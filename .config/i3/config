@@ -15,6 +15,7 @@ exec_always feh --bg-scale /home/johannes/dotfiles/archbackground.png
 exec_always xrandr --output HDMI-1 --same-as eDP-1 
 exec xfce4-power-manager
 exec compton
+exec dropbox
 
 
 # assign [class="Steam"] 10
