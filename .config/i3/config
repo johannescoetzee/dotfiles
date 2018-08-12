@@ -11,9 +11,10 @@ exec nm-applet
 exec redshift
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always nitrogen --set-tiled /home/johannes/Downloads/archbackground.png
-exec_always feh --bg-scale /home/johannes/dotfiles/archbackground.png
 exec_always xrandr --output HDMI-1 --same-as eDP-1 
 exec_always xrandr --output DVI-D-0 --left-of DVI-I-0
+exec_always xrandr --primary DVI-D-0
+exec_always feh --bg-scale /home/johannes/dotfiles/archbackground.png
 exec xfce4-power-manager
 exec compton
 exec dropbox
