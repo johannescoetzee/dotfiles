@@ -1,3 +1,46 @@
+" Setup Vundle
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins to install
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ajh17/VimCompletesMe'
+
+call vundle#end()
+filetype plugin indent on
+
+if !has('gui_running')
+    set t_Co=256
+endif
+
+" set fonts
+set guifont=Inconsolata\ for\ Powerline\ 12
+let g:airline_powerline_fonts = 1
+
+" auto start NERDTree
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
 " hz is escape
 inoremap hz <esc>
 
@@ -6,13 +49,15 @@ inoremap /**<CR> /**<CR><BS><BS>**/<Esc>O<BS> *
 
 " Automatically do double curly braces
 inoremap {<CR> {<CR>}<Esc>O
+inoremap {{<CR> {}<Esc>i
+
+inoremap (<CR> (<CR>)<Esc>O
+inoremap ((<CR> ()<Esc>i
+
+inoremap [<CR> [<CR>]<Esc>O
+inoremap [[<CR> []<Esc>i
 
 colorscheme molokai-dark
-
-" Javadoc /**
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
 
 " Enable line numbering
 " set number
@@ -75,6 +120,16 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Enable Wildmenu
+set wildmenu
+set wildmode=longest:full,full
+
+set wildignore=*.o,*~,*.pyc,*/.git/*
+
+" Always set the current position
+set ruler
+
 
 " Set transparency
 hi Normal guibg=NONE ctermbg=NONE
