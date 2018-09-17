@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/johannes/.oh-my-zsh
-  export JASMIN_JAR=/home/19800045/Programming/ampl/src/jasmin.jar
+  export ZSH=$HOME/.oh-my-zsh
+  export JASMIN_JAR=$HOME/Programming/ampl/src/jasmin.jar
   alias  pyntos=python
   unsetopt autopushd
 

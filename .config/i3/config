@@ -20,7 +20,6 @@ exec compton
 exec dropbox
 exec jack_control start
 
-
 # assign [class="Steam"] 10
 assign [class="transmission-gtk"] 9
 # i3 config file (v4)
@@ -66,8 +65,10 @@ bindsym $mod+e exec dmenu_run
 
 # Use arrow keys for sound and brightness
 bindsym $mod+Left exec xbacklight -dec 1
-bindsym $mod+Down exec pactl set-sink-volume 0 -5%
-bindsym $mod+Up exec pactl set-sink-volume 0 +5%
+#bindsym $mod+Down exec pactl set-sink-volume 0 -5%
+#bindsym $mod+Up exec pactl set-sink-volume 0 +5%
+bindsym $mod+Up exec amixer -c 3 set PCM 2dB+
+bindsym $mod+Down exec amixer -c 3 set PCM 2dB-
 bindsym $mod+Right exec xbacklight -inc 1
 
 # change focus
