@@ -21,7 +21,6 @@ exec compton
 exec dropbox
 #exec jack_control start
 
-
 # assign [class="Steam"] 10
 assign [class="transmission-gtk"] 9
 # i3 config file (v4)
