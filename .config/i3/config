@@ -16,9 +16,10 @@ exec_always xrandr --output DVI-D-0 --left-of DVI-I-0
 exec_always xrandr --primary DVI-D-0
 exec_always feh --bg-scale /home/johannes/dotfiles/archbackground.png
 exec xfce4-power-manager
+exec xflux -l -30 -g 22
 exec compton
 exec dropbox
-exec jack_control start
+#exec jack_control start
 
 
 # assign [class="Steam"] 10
@@ -68,6 +69,8 @@ bindsym $mod+e exec dmenu_run
 bindsym $mod+Left exec xbacklight -dec 1
 bindsym $mod+Down exec pactl set-sink-volume 0 -5%
 bindsym $mod+Up exec pactl set-sink-volume 0 +5%
+#bindsym $mod+Down exec amixer -c 0 set Master 1dB-
+#bindsym $mod+Up exec amixer -c 0 set Master 1dB+
 bindsym $mod+Right exec xbacklight -inc 1
 
 # change focus

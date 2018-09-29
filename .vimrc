@@ -20,6 +20,9 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ajh17/VimCompletesMe'
+Plugin 'lervag/vimtex'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on
@@ -31,15 +34,6 @@ endif
 " set fonts
 set guifont=Inconsolata\ for\ Powerline\ 12
 let g:airline_powerline_fonts = 1
-
-" auto start NERDTree
-autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 
 " hz is escape
 inoremap hz <esc>
@@ -129,6 +123,7 @@ set wildignore=*.o,*~,*.pyc,*/.git/*
 
 " Always set the current position
 set ruler
+set noshowmode
 
 
 " Set transparency
