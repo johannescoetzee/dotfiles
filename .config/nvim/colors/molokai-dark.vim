@@ -1,0 +1,1 @@
+/home/johannes/dotfiles/.vim/colors/molokai-dark.vim

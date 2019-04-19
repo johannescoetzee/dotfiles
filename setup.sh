@@ -1,22 +1,29 @@
 CURR_DIR=$(pwd)
-rm -rf ~/.vim ~/.vim.bak
-rm -rf ~/.config/i3 ~/.config/i3.bak
-rm -rf ~/.config/polybar ~/.config/polybar.bak
-rm -rf ~/.config/termite ~/.config/termite.bak
-rm -rf ~/.vimrc ~/.vimrc.bak
-rm -rf ~/.zshrc ~/.zshrc.bak
-rm -rf ~/.compton.conf ~/.compton.conf.bak
 
-mkdir -p ~/.vim/colors ~/.config/{i3,polybar,termite}
+declare -a confs=(
+    .vim
+    .vimrc
+    .zshrc
+    .compton.conf
+    .config/i3
+    .config/termite
+    .config/nvim
+    )
 
-ln -sf ${CURR_DIR}/.vimrc ~/.vimrc
-ln -sf ${CURR_DIR}/.zshrc ~/.zshrc
-ln -sf ${CURR_DIR}/.compton.conf ~/.compton.conf
-ln -sf ${CURR_DIR}/.vim/colors/molokai-dark.vim ~/.vim/colors/molokai-dark.vim
-ln -sf ${CURR_DIR}/.config/i3/config ~/.config/i3/config
-ln -sf ${CURR_DIR}/.config/polybar/config ~/.config/polybar/config
-ln -sf ${CURR_DIR}/.config/polybar/launch.sh ~/.config/polybar/launch.sh
-ln -sf ${CURR_DIR}/.config/termite/config ~/.config/termite/config
+# Clean up files
+mkdir -p ~/.backup_conf
+for c in ${confs[@]}; do
+    echo $c
+    cp -r ~/$c ~/.backup_conf/ 
+    rm -rf ~/$c
+done
 
-chmod 755 ${CURR_DIR}/.config/polybar/launch.sh
+# Create the symlinks
+mkdir -p ~/.config
+for c in ${confs[@]}; do
+    ln -sf ${CURR_DIR}/$c ~/$c
+done
 
+# Install vim-plug for nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

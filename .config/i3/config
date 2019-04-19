@@ -11,10 +11,9 @@ exec nm-applet
 exec redshift
 #exec --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always nitrogen --set-tiled /home/johannes/Downloads/archbackground.png
-exec_always xrandr --output HDMI-1 --same-as eDP-1 
-exec_always xrandr --output DVI-D-0 --left-of DVI-I-0
-exec_always xrandr --primary DVI-D-0
-exec_always feh --bg-scale /home/johannes/dotfiles/archbackground.png
+exec_always xrandr --auto --output HDMI-1 --left-of eDP-1 
+#exec_always xrandr --output DVI-D-0 --left-of DVI-I-0
+exec_always feh --bg-scale /home/johannes/dotfiles/archbackground.jpg
 exec xfce4-power-manager
 exec xflux -l -30 -g 22
 exec compton
@@ -44,7 +43,7 @@ font pango:monospace 8
 # font, it doesn’t scale on retina/hidpi displays.
 
 
-bindsym $mod+Shift+l exec i3lock
+bindsym $mod+Shift+l exec i3lock -c 000000
 bindsym $mod+Shift+g exec redshift-gtk
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -58,7 +57,7 @@ bindsym $mod+f exec firefox
 bindsym $mod+Shift+apostrophe kill
 
 # start dmenu (a program launcher)
-bindsym $mod+e exec dmenu_run
+bindsym $mod+e exec rofi -theme DarkBlue -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.

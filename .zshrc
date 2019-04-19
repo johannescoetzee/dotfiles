@@ -93,3 +93,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sass="~/node_modules/node-sass/bin/node-sass"
+alias vim=nvim
