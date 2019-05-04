@@ -3,14 +3,14 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 " Syntastic Configuration
-let g:syntastic_python_checkers = ['python', 'mypy']
+" let g:syntastic_python_checkers = ['python', 'mypy']
 
 " Airline Configuration
 let g:airline_theme='molokai'
