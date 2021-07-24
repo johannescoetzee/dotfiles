@@ -9,6 +9,10 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Wallpapers from https://bbs.archlinux.org/viewtopic.php?id=260812
+exec_always --no-startup-id hsetroot -solid "#0c0016"
+exec --no-startup-id picom --backend glx --experimental-backends --xrender-sync-fence
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -148,9 +152,13 @@ bindsym $mod+Shift+j reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+p restart
 # exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # using plasma's logout screen instead of i3's
-bindsym $mod+Shift+period exec --no-startup-id qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
+# bindsym $mod+Shift+period exec --no-startup-id qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
+
+# i3 gaps config
+for_window[class=".*"] border pixel 3
+gaps inner 10
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -197,7 +205,11 @@ for_window [class="plasmashell" window_type="notification"] border none, move ri
 no_focus [class="plasmashell" window_type="notification"]
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
-# Random floating windows
-for_window [class="roguelike_tutorial"] floating enable
-for_window [class="chess_test"] floating enable
-for_window [class="amethyst_test"] floating enable
+bar {
+    status_command i3status
+    position top
+    font pango:FiraCode 10
+    colors {
+        background #0c0016
+    }
+}

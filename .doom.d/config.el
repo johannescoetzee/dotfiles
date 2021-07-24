@@ -29,6 +29,11 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-nord)
 ;; (setq doom-theme 'doom-nord)
+(custom-set-faces
+  '(default ((t (:background "#0c0016"))))
+  '(solaire-default-face ((t (:background "0c0016"))))
+ )
+
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
