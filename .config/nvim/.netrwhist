@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
-let g:netrw_dirhist_2='/home/johannes/.config/terminator'
-let g:netrw_dirhist_1='/home/johannes/.oh-my-zsh'
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/johannes/code/cs/codescience/securityprofile/src/test/java/io/shiftleft/testcode/dataflow'
+let g:netrw_dirhist_6='/home/johannes/.bak/codescience/securityprofile/src/test/scala/io/shiftleft/cpgqueryingtests/steps'
+let g:netrw_dirhist_5='/home/johannes/code/joern_workspace/joern/joern-cli/frontends/javasrc2cpg'
+let g:netrw_dirhist_4='/home/johannes/code/joern_workspace/joern/joern-cli/frontends/javasrc2cpg/test'
+let g:netrw_dirhist_3='/home/johannes/code/ocular_workspace/codescience/sptests/tests/generated'
+let g:netrw_dirhist_2='/home/johannes/code/ocular_workspace/codescience/sptests/out/latest/hello-shiftleft-0.0.1'
+let g:netrw_dirhist_1='/home/johannes/code/ocular_workspace/codescience/sptests/out/latest'
+let g:netrw_dirhist_0='/home/johannes/code/joern_workspace/joern/joern-cli/frontends/c2cpg'
+let g:netrw_dirhist_9='/home/johannes/code/joern_workspace/joern/joern-cli'
+let g:netrw_dirhist_8='/home/johannes/code/joern_workspace/joern/joern-cli/target/universal/stage/frontends/ghidra2cpg/lib/tst/META-INF'

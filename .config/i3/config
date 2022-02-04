@@ -11,7 +11,12 @@
 
 # Wallpapers from https://bbs.archlinux.org/viewtopic.php?id=260812
 exec_always --no-startup-id hsetroot -solid "#0c0016"
+exec --no-startup-id drata-agent
+exec --no-startup-id xautolock -time 1 -corners "--++" -cornerdelay 1 -cornerredelay 1 -locker "i3lock -c 000000"
 exec --no-startup-id picom --backend glx --experimental-backends --xrender-sync-fence
+exec --no-startup-id dunst
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
 
 set $mod Mod4
 
@@ -41,16 +46,21 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+bindsym XF86MonBrightnessUp exec brightnessctl -d "amdgpu_bl0" set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl -d "amdgpu_bl0" set 10%-
+
 bindsym $mod+f exec firefox
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec TERMINAL=kitty i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+semicolon kill
+
+bindsym $mod+Shift+l exec xautolock -locknow
 
 # start dmenu (a program launcher)
 # A more modern dmenu replacement is rofi:
@@ -58,7 +68,7 @@ bindsym $mod+Shift+semicolon kill
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym $mod+e exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+e exec rofi -show run -theme dracula
+bindsym $mod+e exec rofi -show run -theme Arc-Dark
 
 # change focus
 bindsym $mod+h focus left
@@ -158,7 +168,7 @@ bindsym $mod+Shift+period exec "i3-nagbar -t warning -m 'You pressed the exit sh
 
 # i3 gaps config
 for_window[class=".*"] border pixel 3
-gaps inner 10
+# gaps inner 10
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -191,6 +201,7 @@ bindsym $mod+p mode "resize"
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="yakuake"] floating enable
+for_window [class="pavucontrol"] floating enable
 for_window [class="systemsettings"] floating enable
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
