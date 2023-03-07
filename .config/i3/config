@@ -12,7 +12,7 @@
 # Wallpapers from https://bbs.archlinux.org/viewtopic.php?id=260812
 exec_always --no-startup-id hsetroot -solid "#0c0016"
 exec --no-startup-id drata-agent
-exec --no-startup-id xautolock -time 1 -corners "--++" -cornerdelay 1 -cornerredelay 1 -locker "i3lock -n -c 000000"
+exec --no-startup-id xautolock -time 15 -corners "--++" -cornerdelay 1 -cornerredelay 1 -locker "i3lock -n -c 000000"
 exec --no-startup-id picom --backend glx --experimental-backends --xrender-sync-fence
 exec --no-startup-id dunst
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
