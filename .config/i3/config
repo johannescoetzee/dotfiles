@@ -87,6 +87,7 @@ exec --no-startup-id drata-agent
 exec --no-startup-id xautolock -time 15 -corners "--++" -cornerdelay 1 -cornerredelay 1 -locker "i3lock -n -c 000000"
 exec --no-startup-id picom --backend glx --experimental-backends --xrender-sync-fence
 exec --no-startup-id dunst
+exec --no-startup-id udiskie
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 # Temporarily disable to test change to /etc/X11/xinit/xserverrc
 # exec --no-startup-id xset r rate 250 50
@@ -127,8 +128,8 @@ bindsym $mod+$key_lsplit layout toggle split
 bindsym $mod+$key_fs_tog fullscreen toggle
 
 # split toggles
-bindsym $mod+$key_sp_hor split i
-bindsym $mod+$key_sp_ver split d
+bindsym $mod+$key_sp_hor split horizontal
+bindsym $mod+$key_sp_ver split vertical
 
 # container navigation
 bindsym $mod+$key_left  focus left
