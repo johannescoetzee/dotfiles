@@ -32,7 +32,7 @@ set $key_right  s
 
 set $key_reload  apostrophe
 set $key_exit    q
-set $key_kill    j
+set $key_kill    Shift + j
 set $key_browser k
 set $key_lock    x
 
